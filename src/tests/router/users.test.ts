@@ -18,7 +18,7 @@ describe('users', () => {
         await request(app)
         .post('/users')
         .send({ name: "aaa", surname: "bbb" })
-        .expect(404)
+        .expect(200)
     })
 
     it('get users', async () => {
