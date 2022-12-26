@@ -28,9 +28,10 @@ jobs:
       - name: Install dependences
         run: npm ci
       - name: Change folder
-        run: cd ./testing
+        run: |
+          cd ./testing
       - name: Echo folder
-        run: ls
+        run: echo $(ls)
       #- name: Run docker-compose
       #  run: docker compose up -d
       - name:
