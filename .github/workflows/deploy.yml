@@ -27,10 +27,8 @@ jobs:
           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependences
         run: npm ci
-      - name: Change folder
-        run: |
-          cd ./testing
-      - name: Echo folder
+        working-directory: testing
+      - name: Getting path
         run: echo $(ls)
       #- name: Run docker-compose
       #  run: docker compose up -d
