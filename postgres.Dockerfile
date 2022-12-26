@@ -1,0 +1,5 @@
+FROM postgres
+
+ENV POSTGRES_USER test
+ENV POSTGRES_PASSWORD test
+ENV POSTGRES_DB testing_db

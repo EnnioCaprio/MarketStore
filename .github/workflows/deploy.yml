@@ -1,0 +1,38 @@
+name: Deployment API
+on: workflow_dispatch
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install checkout
+        uses: actions/checkout@v3
+      - name: Cache dependences
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependences
+        run: npm ci
+      - name: Finished
+        run: echo "finished lint"
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install checkout
+        uses: actions/checkout@v3
+      - name: Cache dependences
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependences
+        run: npm ci
+      - name: Run docker-compose
+        run: docker compose up -d
+      - name:
+        run: echo "finished testing"
+  building:
+    runs-on: ubuntu-latets
+    steps:
+      - name: echo something
+        run: echo "ciao"
