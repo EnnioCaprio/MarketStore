@@ -70,9 +70,9 @@ class Context {
         }
     }
 
-    async reset() {
+    /* async reset() {
 
-    }
+    } */
 
     async close() {
         await pool.close();

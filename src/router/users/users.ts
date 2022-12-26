@@ -1,11 +1,11 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import conn from '../../customConn/connect'
 import select from 'dotenv';
 select.config()
 
 const router = express.Router();
 
-router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+router.get('/', async (req: Request, res: Response) => {
     const trx = await conn.query()?.transaction();
     
     try{
@@ -23,7 +23,7 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
     }
 })
 
-router.post('/', async (req: Request, res: Response, next: NextFunction) => {
+router.post('/', async (req: Request, res: Response) => {
     const trx = await conn.query()?.transaction();
     const { name, surname } = req.body;
 
