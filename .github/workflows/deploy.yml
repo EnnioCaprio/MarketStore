@@ -28,7 +28,7 @@ jobs:
       - name: Install dependences
         run: npm ci
       - name: Run docker-compose
-        run: docker compose -f ./testing/docker-compose.yml up
+        run: docker compose -f ./testing/docker-compose.yml up --exit-code-from testing-be
       - name:
         run: echo "finished testing"
   building:
