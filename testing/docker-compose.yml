@@ -11,14 +11,13 @@ services:
     networks:
       - my-network
 
-  backend:
+  testing-be:
     build: 
       context: ../
     ports:
       - "3000:3000"
     networks:
       - my-network
-    restart: on-failure
     command: sh -c "sleep 3 && npm run test"
     depends_on:
       - db
