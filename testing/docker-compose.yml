@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  db:
+    build: 
+      context: ../
+      dockerfile: postgres.Dockerfile
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    networks:
+      - my-network
+
+  backend:
+    build: 
+      context: ../
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+    restart: on-failure
+    command: sh -c "sleep 3 && npm run test"
+    depends_on:
+      - db
+
+networks:
+  my-network:
+    driver: bridge
