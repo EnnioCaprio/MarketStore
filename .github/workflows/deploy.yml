@@ -36,7 +36,7 @@ jobs:
         run: echo "finished testing"
   building:
     needs: testing
-    runs-on: ubuntu-latets
+    runs-on: ubuntu-latest
     steps:
       - name: Install checkout
         uses: actions/checkout@v3
